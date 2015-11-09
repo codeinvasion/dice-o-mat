@@ -13,6 +13,8 @@ var PIN = function(pinToSetup){
 			if (err) throw err;
 		});
 	}
+
+	return this;
 }
 
 
