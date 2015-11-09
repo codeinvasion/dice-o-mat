@@ -5,7 +5,7 @@ module.exports = {
 	PIN: function(pin){
 		gpio.setup(pin, gpio.DIR_OUT, write);
 		this.pin = pin;
-	}
+	},
 
 	write: function(val){
 		if(this.pin == null)
