@@ -10,9 +10,9 @@ var PIN = function(pinToSetup){
 			return;
 		}
 
-console.log(this.pin);
+console.log(pinToSetup);
 
-		gpio.write(this.pin, val, function(err){
+		gpio.write(pinToSetup, val, function(err){
 			if (err) throw err;
 		});
 	}
