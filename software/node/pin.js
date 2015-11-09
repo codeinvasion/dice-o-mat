@@ -1,13 +1,11 @@
+var PIN = function(pinToSetup){
+	var pin = null;
 
-module.exports = {
-	pin: null,
-	PIN: function(pinToSetup){
-    	var gpio = require('rpi-gpio');
-		gpio.setup(pinToSetup, gpio.DIR_OUT, write);
-		this.pin = pinToSetup;
-	},
+   	var gpio = require('rpi-gpio');
+	gpio.setup(pinToSetup, gpio.DIR_OUT, write);
+	this.pin = pinToSetup;
 
-	write: function(val){
+	var write = function(val){
 		if(this.pin == null)
 		{
 			console.error("pin is not initialized");
@@ -18,3 +16,6 @@ module.exports = {
 		});
 	}
 }
+
+
+module.exports = PIN;
