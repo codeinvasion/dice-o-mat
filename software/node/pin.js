@@ -1,7 +1,7 @@
 var gpio = require('rpi-gpio');
 var pin=null;
 
-module.exports {
+module.exports = {
 	PIN = function(pin){
 		gpio.setup(pin, gpio.DIR_OUT, write);
 		this.pin = pin;
