@@ -10,6 +10,6 @@ var gpio = require('rpi-gpio');
 var pinLib = require('./pin');
 var pins = {};
 for(value in setup){
-	pins[value] = new pinLib(setup[value]);
+	pins[value] = new pinLib.PIN(setup[value]);
 	pins[value].write(false);
 }
