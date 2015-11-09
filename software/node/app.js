@@ -11,7 +11,5 @@ var pinLib = require('./pin');
 var pins = {};
 for(value in setup){
 	pins[value] = new pinLib(setup[value]);
-	//pins[value].write(false);
+	pins[value].write(false);
 }
-
-console.log(pins);
