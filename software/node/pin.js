@@ -1,10 +1,10 @@
-var gpio = require('rpi-gpio');
-var pin=null;
 
 module.exports = {
-	PIN: function(pin){
+	pin: null,
+	PIN: function(pinToSetup){
+    	var gpio = require('rpi-gpio');
 		gpio.setup(pin, gpio.DIR_OUT, write);
-		this.pin = pin;
+		pin = pinToSetup;
 	},
 
 	write: function(val){
