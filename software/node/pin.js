@@ -1,5 +1,6 @@
+var gpio = require('rpi-gpio');
+
 var PIN = function(pinToSetup){
-   	var gpio = require('rpi-gpio');
 	gpio.setup(pinToSetup, gpio.DIR_OUT, this.write);
 
 	this.pin = pinToSetup;
@@ -10,15 +11,16 @@ var PIN = function(pinToSetup){
 			return;
 		}
 
-console.log(pinToSetup);
+		if(val == undefined || val == null){
+			return;
+		}
 
-		gpio.write(pinToSetup, val, function(err){
+		gpio.write(this.pin, val, function(err){
 			if (err) throw err;
 		});
 	}
 
 	return this;
 }
-
 
 module.exports = PIN;
