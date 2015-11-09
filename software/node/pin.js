@@ -1,6 +1,6 @@
 var PIN = function(pinToSetup){
    	var gpio = require('rpi-gpio');
-	gpio.setup(pinToSetup, gpio.DIR_OUT, write);
+	gpio.setup(pinToSetup, gpio.DIR_OUT, this.write);
 
 	this.pin = pinToSetup;
 	this.write = function(val){
