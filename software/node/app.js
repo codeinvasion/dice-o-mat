@@ -1,17 +1,21 @@
-var setup = {
-	'A': 18,
-	'B': 23,
-	'C': 24,
-	'D': 25
-}
+var path = require("path"),
+    rotat0r = new (require("./rotate.js"))([18, 23, 24, 25], 4096),
+    bodyParser = require('body-parser'),
+    express = require('express');
 
 
-var gpio = require('rpi-gpio');
-var pinLib = require('./pin');
-var pins = {};
-for(value in setup){
-	pins[value] = new pinLib(setup[value]);
-	pins[value].write(false);
-}
+var app = express();
 
-console.log(pins);
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+var router = express.Router();
+
+router.post('/rotate', function (req, res) {
+    rotat0r.rotate();
+    res.json({message: 'rotating!'});
+});
+
+app.use('/api', router);
+
+var server = app.listen(8080, function () {});
