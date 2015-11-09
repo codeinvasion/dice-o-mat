@@ -9,6 +9,9 @@ var PIN = function(pinToSetup){
 			console.error("pin is not initialized");
 			return;
 		}
+
+console.log(this.pin);
+
 		gpio.write(this.pin, val, function(err){
 			if (err) throw err;
 		});
